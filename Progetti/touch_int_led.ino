@@ -11,6 +11,7 @@ Serial.begin(9600);
 
 void loop () {
 boolean statoint = digitalRead(touchint);
+Serial.println("Lo stato dell'interruttore touch è: ",statoint);
 // leggo tramite la digitalRead lo stato dell'interruttore touch
 
 if (statoint == HIGH) {

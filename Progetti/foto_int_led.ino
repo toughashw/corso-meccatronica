@@ -10,6 +10,7 @@ pinMode(led, OUTPUT);
 
 void loop () {
 boolean statoint = digitalRead(fotointerruttore);
+Serial.println("Lo stato del foto interruttore è: ",statoint);
 // leggo tramite la digitalRead il valore booleano (0/1) del fotointerruttore
 
 if (statoint == HIGH) {
