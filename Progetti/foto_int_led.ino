@@ -8,10 +8,10 @@ pinMode(led, OUTPUT);
 }
 // definisco tramite la PinMode chi è INPUT e chi OUTPUT
 
+void loop () {
 boolean statoint = digitalRead(fotointerruttore);
 // leggo tramite la digitalRead il valore booleano (0/1) del fotointerruttore
 
-void loop () {
 if (statoint == HIGH) {
     digitalWrite(led, LOW)
 }
