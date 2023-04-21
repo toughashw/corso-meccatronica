@@ -6,6 +6,17 @@ Repository del Corso di Meccatronica della Regione Puglia
 #include <nomelibreria.h>
 ```
 
+- TIPI DI DATI
+```
+INTERO --> int
+DECIMALE --> float
+A DOPPIA PRECISIONE --> double
+INTERI CON SEGNO --> long
+BOOLEANO --> boolean
+CARATTERE --> char
+STRINGA --> char(i)
+```
+
 - DICHIARIAZIONE PINS
 ```
 const int nomepint = numeropin;
