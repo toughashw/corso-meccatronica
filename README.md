@@ -1,18 +1,18 @@
 # Corso di Meccatronica
 Repository del Corso di Meccatronica della Regione Puglia
 
-> LIBRERIE
+- LIBRERIE
 ```
 #include <nomelibreria.h>
 ```
 
-> DICHIARIAZIONE PINS
+- DICHIARIAZIONE PINS
 ```
 const int nome-in-out = numeropin;
 #define nome IN/OUT NumeroPin;
 ```
 
-> LETTURA/SCRITTURA DA INGRESSI ANALOGICI/DIGITALI
+- LETTURA/SCRITTURA DA INGRESSI ANALOGICI/DIGITALI
 ```
 digitalRead(nomepin/numeropin)
 digitalWrite(nomepin/numeropin, HIGH/LOW)
