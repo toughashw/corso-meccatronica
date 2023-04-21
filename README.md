@@ -8,16 +8,25 @@ Repository del Corso di Meccatronica della Regione Puglia
 
 - DICHIARIAZIONE PINS
 ```
-const int nome-in-out = numeropin;
-#define nome IN/OUT NumeroPin;
+const int nome_in-out = numeropin;
+#define nome_in-out NumeroPin;
+```
+
+- DICHIARIAZIONE INGRESSI/USCITE
+```
+void setup() {
+pinMode(nomepin/numeropin,HIGH/LOW);
+}
 ```
 
 - LETTURA/SCRITTURA DA INGRESSI ANALOGICI/DIGITALI
 ```
+void loop() {
 digitalRead(nomepin/numeropin)
 digitalWrite(nomepin/numeropin, HIGH/LOW)
 analogRead(nomepin/numeropin)
 analogWrite()
+}
 ```
 
 - OPERAZIONI CON SERIALE
