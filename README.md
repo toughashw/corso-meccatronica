@@ -42,6 +42,7 @@ Serial.println(dati);  --> Stampa a capo su monitor seriale lo stream di dati
 }
 ```
 - OPERATORI MATEMATICI E LOGICI
+```
 ASSEGNAZIONE --> =
 MAGGIORE --> >
 MAGGIORE/UGUALE --> >=
@@ -50,3 +51,4 @@ MINORE/UGUALE --> <=
 UGUALE-CONFRONTO --> == 
 AND (entrambe vere) --> &&
 OR (una delle due vere) --> || 
+```
