@@ -3,7 +3,7 @@ const int echoPin = 10;
 const int relay = 12;
 
 long durata_impulso;
-long distanza;
+float distanza;
 
 void setup() {
 pinMode(trigPin, OUTPUT); 
@@ -31,7 +31,7 @@ Serial.print("Distanza: ");
 Serial.print(distanza);
 Serial.println(" cm");
 }
-if (distanza <= 10.0) {
+if (distanza <= 10.00) {
     digitalWrite(relay,HIGH);
 }
 else {
