@@ -19,24 +19,24 @@ STRINGA --> char(i)
 
 - DICHIARIAZIONE PINS
 ```
-const int nomepint = numeropin;
-#define nomepin numeroPin;
+const int nomePin = numeroPin;
+#define nomePin numeroPin;
 ```
 
 - DICHIARIAZIONE INGRESSI/USCITE
 ```
 void setup() {
-pinMode(nomepin/numeropin,HIGH/LOW);
+pinMode(nomePin/numeroPin,INPUT/OUTPUT);
 }
 ```
 
 - LETTURA/SCRITTURA DA INGRESSI ANALOGICI/DIGITALI
 ```
 void loop() {
-digitalRead(nomepin/numeropin);
-digitalWrite(nomepin/numeropin, HIGH/LOW);
-analogRead(nomepin/numeropin);
-analogWrite()
+digitalRead(nomePin/numeroPin);
+digitalWrite(nomePin/numeroPin, HIGH/LOW);
+analogRead(nomePin/numeroPin);
+analogWrite(nomePin/numeroPin,0-255);
 }
 ```
 
