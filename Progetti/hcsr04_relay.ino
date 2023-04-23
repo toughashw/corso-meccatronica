@@ -23,10 +23,14 @@ digitalWrite(trigPin, LOW);
 
 durata_impulso = pulseIn(echoPin, HIGH);
 
-distanza= durata_impulso*0.034/2;
-
+distanza=durata_impulso*0.034/2;
+int pos;
+for (pos=0; pos<29; pos++)
+{
 Serial.print("Distanza: ");
-Serial.println(distanza);
+Serial.print(distanza);
+Serial.println(" cm");
+}
 if (distanza <= 10.0) {
     digitalWrite(relay,HIGH);
 }
