@@ -1,4 +1,4 @@
-# Analisi temperatura ed alert visivo e sono, al variare della temperature, tramite LED/Buzzer e avvisi su display LCD RGB Backlight I2C
+# Analisi temperatura ed alert visivo e sonoro, al variare della temperature, tramite LED/Buzzer e avvisi su display LCD RGB Backlight I2C
 
 > Hardware Utilizzato:
 - [Temperature Sensor] - (https://wiki.seeedstudio.com/Grove-Temperature_Sensor_V1.2/)
