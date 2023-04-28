@@ -52,6 +52,23 @@ Serial.println("TESTO"); --> Stampa a capo su monitor seriale una stringa di tes
 Serial.println(dati);  --> Stampa a capo su monitor seriale lo stream di dati
 }
 ```
+
+- OPERAZIONI CON LCD DISPLAY
+```
+void setup() {
+lcd.begin(16,2); --> Inizializzazione del display a 16 righe e 2 colonne
+}
+void loop() {
+lcd.setRGB (ColorR, ColorG, ColorB); --> imposta la retroilluminazione del colore prescelto
+lcd.setCursor(posizioneriga,posizionecolonna); --> Imposta il cursore sulla posizione prescelta
+lcd.clear(); --> pulisce il contenuto del display
+lcd.noDisplay(); --> Spegne il Display
+lcd.blinkLED(); --> fa lampeggiare il display
+lcd.print("TESTO"); --> Stampa su display una stringa di testo
+lcd.print(dati); --> Stampa su display lo stream di dati
+}
+```
+
 - OPERATORI MATEMATICI E LOGICI
 ```
 ASSEGNAZIONE --> =
