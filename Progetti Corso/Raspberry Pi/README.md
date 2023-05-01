@@ -19,6 +19,7 @@ sudo raspi-config
 ```
 sudo apt-get update -y && sudo apt-get upgrade -y
 ```
+```
 sudo apt-get install realvnc-vnc-server
 sudo apt-get install realvnc-vnc-viewer
 ```
