@@ -8,8 +8,8 @@
 - Individuazione hostmane/indirizzo IP (https://angryip.org)
 - Primo accesso via SSH 
 ```
-ssh <raspberrydefaultuser>@<raspberryipaddress>
-default hostname: pi | password: raspberry
+ssh pi>@ip/hostname
+default user: pi | default password: raspberry | default hostname: raspberrypi
 ```
 
 - Installazione e Configurazione VNC 
@@ -22,4 +22,31 @@ sudo apt-get update -y && sudo apt-get upgrade -y
 ```
 sudo apt-get install realvnc-vnc-server
 sudo apt-get install realvnc-vnc-viewer
+```
+
+- Installazione GIT e controllo versione
+```
+sudo apt-get install git -y
+```
+```
+git --version
+```
+
+- Installazione GIT e controllo versione
+```
+sudo apt-get install git -y
+```
+```
+git --version
+```
+
+- Installazione Python e controllo versione
+```
+sudo apt-get install python
+```
+```
+sudo apt-get install python3
+```
+```
+python --version
 ```
