@@ -50,3 +50,20 @@ sudo apt-get install python3
 ```
 python --version
 ```
+- Installazione PIP e controllo versione
+```
+sudo apt install python3-pip
+```
+```
+pip3 --version
+```
+
+- Comandi GPIO e controllo manuale
+```
+pinout
+```
+- WiringPI
+```
+sudo apt-get install wiringpi
+```
+(http://wiringpi.com/the-gpio-utility/)
