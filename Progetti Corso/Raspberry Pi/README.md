@@ -1,4 +1,5 @@
 # Steps Installazione e prima configurazione Raspberry Pi
+(https://downloads.raspberrypi.org/raspios_full_armhf/images/raspios_full_armhf-2021-11-08/2021-10-30-raspios-bullseye-armhf-full.zip)
 
 > Steps Installazione
 - Download Sistema Operativo Raspy Linux (https://www.raspberrypi.com/software/operating-systems/)
