@@ -12,6 +12,13 @@
 ssh pi>@ip/hostname
 default user: pi | default password: raspberry | default hostname: raspberrypi
 ```
+- Rigenerazione chiave SSH
+```
+ssh-keygen -R "indirizzoip"
+```
+```
+ssh-nomeutente@indirizzoip
+```
 
 - Installazione e Configurazione VNC 
 ```
@@ -23,14 +30,6 @@ sudo apt-get update -y && sudo apt-get upgrade -y
 ```
 sudo apt-get install realvnc-vnc-server
 sudo apt-get install realvnc-vnc-viewer
-```
-
-- Installazione GIT e controllo versione
-```
-sudo apt-get install git -y
-```
-```
-git --version
 ```
 
 - Installazione GIT e controllo versione
@@ -65,6 +64,21 @@ pinout
 ```
 - WiringPI
 ```
-sudo apt-get install wiringpi
+git clone https://github.com/WiringPi/WiringPi
+```
+```
+pinout
+```
+```
+gpio mode PIN out/in
+```
+```
+gpio write PIN 0/1
+```
+```
+gpio read PIN 
+```
+```
+gpio readall
 ```
 (http://wiringpi.com/the-gpio-utility/)
