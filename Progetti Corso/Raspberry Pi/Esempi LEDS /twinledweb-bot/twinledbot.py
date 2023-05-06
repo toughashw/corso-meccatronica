@@ -12,7 +12,7 @@ GPIO.setwarnings(False)
 led1 = 11
 led2 = 13
 wiringpi.pinMode(led1, wiringpi.OUTPUT)
-wiringpi.pinMode(sled2, wiringpi.OUTPUT)
+wiringpi.pinMode(led2, wiringpi.OUTPUT)
 GPIO.setup(led1, GPIO.OUT)
 GPIO.setup(led2, GPIO.OUT)
 
@@ -27,7 +27,6 @@ def spegni_led(pin):
 
 def stato_led(pin):
     wiringpi.digitalRead(pin)
-
 
 # Funzione per gestire i messaggi del bot
 def gestisci_messaggio(messaggio):
@@ -46,8 +45,8 @@ def gestisci_messaggio(messaggio):
         bot.sendMessage(chat_id, 'LED 1 è spento')
 
     elif testo == '3':
-        stato_led(led1)
-    if   accendi_led(pin):
+         stato_led(led1)
+    if   accendi_led(led1) == True):
          bot.sendMessage(chat_id, 'LED 1 è acceso')
     else:
         bot.sendMessage(chat_id, 'LED 1 è spento')
@@ -62,7 +61,7 @@ def gestisci_messaggio(messaggio):
 
     elif testo == '6':
         stato_led(led2)
-    if  wiringpi.digitalRead(led2) == HIGH:
+    if  accendi_led(led2) == True
          bot.sendMessage(chat_id, 'LED 2 è acceso')
     else:
         bot.sendMessage(chat_id, 'LED 2 è spento')
