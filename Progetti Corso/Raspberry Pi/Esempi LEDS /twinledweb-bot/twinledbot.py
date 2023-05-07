@@ -31,42 +31,42 @@ def gestisci_messaggio(messaggio):
     testo = messaggio['text']
 
     if  testo == '/start':
-        bot.sendMessage(chat_id, 'Benvenuto nel menu dei LED. \nScegli un'opzione: \n\nDigita 1. per accendere il LED Rosso\nDigita 2. Per spegnere il LED Rosso\nDigita 3. Per info sullo stato del LED Rosso\nDigita 4. Per accendere il LED Giallo \nDigita 5. Per spegnere il LED Giallo \nDigita 6. Per info sullo Stato del LED Giallo\nDigita 7. Per accendere il LED Verde \nDigita 8. Per spegnere il LED Verde \nDigita 9. Per info sullo Stato del LED Verde')
+        bot.sendMessage(chat_id, 'Benvenuto nel menu dei LED. \nScegli un\'opzione: \n\nDigita 1. per accendere il LED Rosso\nDigita 2. Per spegnere il LED Rosso\nDigita 3. Per info sullo stato del LED Rosso\nDigita 4. Per accendere il LED Giallo \nDigita 5. Per spegnere il LED Giallo \nDigita 6. Per info sullo Stato del LED Giallo\nDigita 7. Per accendere il LED Verde \nDigita 8. Per spegnere il LED Verde \nDigita 9. Per info sullo Stato del LED Verde')
 
     elif testo == '1':
-         accendi_led(led1)
+         accendi_led(ledrosso)
          bot.sendMessage(chat_id, 'Il LED Rosso è acceso')
 
     elif testo == '2':
-         spegni_led(led1)
+         spegni_led(ledrosso)
          bot.sendMessage(chat_id, 'Il LED Rosso è spento')
 
     elif testo == '3':
-         ledstate1 =  stato_led(led1)
+         ledstate1 =  stato_led(ledrosso)
          bot.sendMessage(chat_id,'Il LED Rosso è {}'.format(ledstate1))
 
     elif testo == '4':
-         accendi_led(led2)
+         accendi_led(ledgiallo)
          bot.sendMessage(chat_id, 'Il LED Giallo è acceso')
 
     elif testo == '5':
-         spegni_led(led2)
+         spegni_led(ledgiallo)
          bot.sendMessage(chat_id, 'Il LED Giallo è spento')
 
     elif testo == '6':
-         ledstate2 = stato_led(led2)
+         ledstate2 = stato_led(ledgiallo)
          bot.sendMessage(chat_id, 'Il LED Giallo è {}'.format(ledstate2))
 
     elif testo == '7':
-         accendi_led(led3)
+         accendi_led(ledverde)
          bot.sendMessage(chat_id, 'Il LED Verde è acceso')
 
     elif testo == '8':
-         spegni_led(led3)
+         spegni_led(ledverde)
          bot.sendMessage(chat_id, 'Il LED Verde è spento')
 
     elif testo == '9':
-         ledstate3 = stato_led(led3)
+         ledstate3 = stato_led(ledverde)
          bot.sendMessage(chat_id, 'Il LED Verde è {}'.format(ledstate3))
     else:
         bot.sendMessage(chat_id, 'Comando non valido')
