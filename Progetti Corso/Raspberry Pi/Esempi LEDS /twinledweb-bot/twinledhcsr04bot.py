@@ -22,7 +22,7 @@ def gestisci_messaggio(messaggio):
     chat_id = messaggio['chat']['id']
     testo = messaggio['text']
 
-while True:
+def misura_distanza()
     # Invia un impulso al sensore
     GPIO.output(TRIG, False)
     time.sleep(0.5)
@@ -42,25 +42,27 @@ while True:
     # Calcola la distanza in cm
     distance = pulse_duration * 17150
     distancecm = round(distance, 2)
+    return distancecm
     print('La distanza è:',distancecm,'cm')
 
-
+while True:
     # Accendi il LED corrispondente alla distanza
+    distancecm = misura_distanza()
     if distancecm  >0 and distancecm <=10:
         GPIO.output(ledrosso, True)
         GPIO.output(ledgiallo, False)
         GPIO.output(ledverde, False)
-        bot.sendMessage(chat_id, 'Distanza rilevata: {} cm. Acceso LED rosso.'.format(distance))
+        bot.sendMessage(chat_id, 'Distanza')
     elif distancecm >10 and distancecm <=20:
         GPIO.output(ledrosso, False)
         GPIO.output(ledgiallo, True)
         GPIO.output(ledverde, False)
-        bot.sendMessage(chat_id, 'Distanza rilevata: {} cm. Acceso LED giallo.'.format(distance))
+        bot.sendMessage(chat_id, 'Distanze')
     elif distancecm >20 and distancecm <=30:
         GPIO.output(ledrosso, False)
         GPIO.output(ledgiallo, False)
         GPIO.output(ledverde, True)
-        bot.sendMessage(chat_id, 'Distanza rilevata: {} cm. Acceso LED verde.'.format(distance))
+        bot.sendMessage(chat_id, 'Distanzi')
     else:
         GPIO.output(ledrosso, False)
         GPIO.output(ledgiallo, False)
