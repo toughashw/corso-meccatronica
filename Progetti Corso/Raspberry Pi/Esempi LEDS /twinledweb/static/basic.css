@@ -1,0 +1,18 @@
+button {
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 10px 20px;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+  }
+  
+  button.led1 {
+    background-color: #008000; /* verde */
+  }
+  button.led2 {
+    background-color: #0000FF; /* blu */
+  }
+  button.led3 {
+    background-color: #0000FF; /* blu */
+  }

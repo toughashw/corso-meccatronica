@@ -2,8 +2,8 @@ import wiringpi
 import time
 from time import sleep
 
-primoled = 23
-secondoled = 24
+primoled = 14
+secondoled = 18
 
 wiringpi.wiringPiSetupGpio()
 

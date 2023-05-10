@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Controllo LED con Flask</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='basic.css') }}">
+  <body>
+    <h1>Controllo LED con Flask</h1>
+    <form method="POST" action="/led1/{{ led1_state }}">
+      <button class="led1" type="submit">{{ ledred_text }}</button>
+    </form>
+    <form method="POST" action="/led2/{{ led2_state }}">
+      <button classe="led2" type="submit">{{ ledyellow_text }}</button>
+    </form>
+    </form>
+    <form method="POST" action="/led3/{{ led3_state }}">
+    <button classe="led3" type="submit">{{ ledgreen_text }}</button>
+    </form>
+  </body>
+</html>

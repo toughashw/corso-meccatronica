@@ -2,8 +2,8 @@ import RPi.GPIO as GPIO
 import time
 from time import sleep
 
-primoled = 23
-secondoled = 24
+primoled = 14
+secondoled = 18
 
 GPIO.setmode(GPIO.BCM)
 

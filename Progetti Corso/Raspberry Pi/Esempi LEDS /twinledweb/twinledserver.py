@@ -5,8 +5,9 @@ app = Flask(__name__)
 
 GPIO.setmode(GPIO.BCM)
 
-GPIO.setup(11, GPIO.OUT)
-GPIO.setup(13, GPIO.OUT)
+GPIO.setup(14, GPIO.OUT)
+GPIO.setup(18, GPIO.OUT)
+GPIO.setup(7, GPIO.OUT)
 
 @app.route('/')
 def index():
@@ -22,5 +23,13 @@ def led_off(led):
     GPIO.output(led, GPIO.LOW)
     return 'LED ' + str(led) + ' Spento'
 
+@app.route('/led/state/<int:led>')
+def led_state(led):
+    GPIO.input(led)
+    if GPIO.input(led) == HIGH:
+    return 'LED ' + str(led) + ' Acceso'
+    else:
+    return 'LED ' + str(led) + ' Spento'
+
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(host='0.0.0.0', port=80, debug=True)
