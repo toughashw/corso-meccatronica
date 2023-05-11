@@ -1,4 +1,4 @@
-mport RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 import telepot
 import time
 
@@ -26,7 +26,10 @@ def ledoff(pin):
     GPIO.output(pin, GPIO.LOW)
 
 def ledstate(pin):
-    GPIO.input(pin)
+    if GPIO.input(pin) == GPIO.HIGH:
+       return botsendMessage(chat_id, 'Il LED è acceso')
+     elif GPIO.input(pin) == GPIP.LOW:
+       return botsendMessage(chat_id, 'Il LED è spento')
 
 if testo == '/start':
    bot.sendMessage(chat_id, '1: Accendi LED Rosso. \n2: 2:Spegni LED Rosso. \n3: Stato LED Rosso. \n4: Accendi LED Giallo. \n5: Spegni LED Giallo. \n6: Stato LED Giallo. \n7: Accendi LED Verde. \n8: Spegni LED Verde. \n9: Stato LED Verde. \n')
@@ -39,12 +42,6 @@ elif testo == '2':
      bot.sendMessage(chat_id, 'LED Rosso è Spento')
 elif testo == '3':
      ledstate(ledrosso)
-     statoR = ledstate(ledrosso)
-match (statoR):
-    case statoR'False':
-    bot.sendMessage(chat_id, 'Il LED è spento')
-    case statoR'True':
-    bot.sendMessage(chat_id, 'Il LED è acceso')
 elif testo == '4':
      ledon(ledgiallo)
      bot.sendMessage(chat_id, 'LED Giallo è Acceso')
@@ -53,12 +50,6 @@ elif testo == '5':
      bot.sendMessage(chat_id, 'LED Giallo è Spento')
 elif testo == '6':
      ledstate(ledgiallo)
-     statoG = ledstate(ledgiallo) 
-match (statoG):
-    case statoG'False':
-    bot.sendMessage(chat_id, 'Il LED è spento')
-    case statoG'True':
-    bot.sendMessage(chat_id, 'Il LED è acceso')
 elif testo =='7':
      ledon(ledverde)
      bot.sendMessage(chat_id, 'LED Verde è Acceso')
@@ -67,12 +58,6 @@ elif testo == '8':
      bot.sendMessage(chat_id, 'LED Verde è Spento')
 elif testo =='9':
      ledstate(ledverde)
-     statoV = ledstate(ledverde) 
-match (statoV):
-    case statoV'False':
-    bot.sendMessage(chat_id, 'Il LED è spento')
-    case statoV'True':
-    bot.sendMessage(chat_id, 'Il LED è acceso')
 
 while True:
     time.sleep(10)
