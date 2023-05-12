@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
-import time
 import telepot
+import time
+from time import sleep
 
 # Inizializza il sensore HC-SR04
 GPIO.setmode(GPIO.BCM)

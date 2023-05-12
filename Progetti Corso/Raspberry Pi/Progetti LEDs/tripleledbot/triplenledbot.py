@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 import telepot
 import time
+from time import sleep
 
 # Configurazione dei GPIO
 GPIO.setmode(GPIO.BCM)
