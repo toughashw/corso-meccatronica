@@ -13,10 +13,10 @@ GPIO.setup(TRIG, GPIO.OUT)
 GPIO.setup(ECHO, GPIO.IN)
 
 # Inizializza i pin dei LED
-ledrosso = 14
+ledblue = 14
 ledgiallo = 18
 ledverde = 7
-GPIO.setup(ledrosso, GPIO.OUT)
+GPIO.setup(ledblue, GPIO.OUT)
 GPIO.setup(ledgiallo, GPIO.OUT)
 GPIO.setup(ledverde, GPIO.OUT)
 
@@ -43,10 +43,12 @@ def misura_distanza():
     return distancecm
 
 def ledsonloop(distancecm):
+    print('La distanza è: ',distancecm,'cm')
+
     if distancecm >0 and distancecm <=10:
        print('La distanza va male')
        print('Accendo LED Blue')
-       GPIO.output(ledrosso, True)
+       GPIO.output(ledblue, True)
        GPIO.output(ledgiallo, False)
        GPIO.output(ledverde, False)
 
@@ -60,12 +62,12 @@ def ledsonloop(distancecm):
     elif distancecm >20 and distancecm <=30:
          print('La distanza va bene')
          print('Accendo LED Verde')
-         GPIO.output(ledrosso, False)
+         GPIO.output(ledblue, False)
          GPIO.output(ledgiallo, False)
          GPIO.output(ledverde, True)
 
     else:
-         GPIO.output(ledrosso, False)
+         GPIO.output(ledblue, False)
          GPIO.output(ledgiallo, False)
          GPIO.output(ledverde, False)
 
@@ -88,12 +90,9 @@ def gestisci_messaggio(messaggio):
     testo = messaggio['text']
 
     if testo == '/start':
-       distancecm = misura_distanza()
-       ledsonchat(distancecm, chat_id)
        bot.sendMessage(chat_id, 'Benvenuto nel chatbot della distanza')
 
     elif testo == '/distanza':
-         distancecm = misura_distanza()
          bot.sendMessage(chat_id, 'Distanza : {}cm'.format(distancecm))
 
 # Configurazione del bot Telegram
@@ -103,7 +102,6 @@ bot.message_loop(gestisci_messaggio)
 while True:
    distancecm = misura_distanza()
    ledsonloop(distancecm)
-   print('La distanza è: ',distancecm,'cm')
 
    time.sleep(0.5)
 
