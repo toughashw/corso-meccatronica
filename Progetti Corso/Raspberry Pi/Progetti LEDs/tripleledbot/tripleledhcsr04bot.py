@@ -5,6 +5,8 @@ from time import sleep
 
 # Inizializza il sensore HC-SR04
 GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
+
 TRIG = 23
 ECHO = 24
 GPIO.setup(TRIG, GPIO.OUT)
@@ -18,11 +20,6 @@ GPIO.setup(ledrosso, GPIO.OUT)
 GPIO.setup(ledgiallo, GPIO.OUT)
 GPIO.setup(ledverde, GPIO.OUT)
 
-# Funzione per gestire i messaggi del bot
-def gestisci_messaggio(messaggio):
-    chat_id = messaggio['chat']['id']
-    testo = messaggio['text']
-
 def misura_distanza():
     # Invia un impulso al sensore
     GPIO.output(TRIG, False)
@@ -33,9 +30,9 @@ def misura_distanza():
 
     # Attendi la risposta del sensore
     while GPIO.input(ECHO) == 0:
-        pulse_start = time.time()
+          pulse_start = time.time()
     while GPIO.input(ECHO) == 1:
-        pulse_end = time.time()
+          pulse_end = time.time()
 
     # Calcola la durata dell'impulso
     pulse_duration = pulse_end - pulse_start
@@ -44,35 +41,70 @@ def misura_distanza():
     distance = pulse_duration * 17150
     distancecm = round(distance, 2)
     return distancecm
-    print('La distanza è:',distancecm,'cm')
 
-while True:
-    # Accendi il LED corrispondente alla distanza
-    distancecm = misura_distanza()
-    if distancecm  >0 and distancecm <=10:
-    GPIO.output(ledrosso, True)
-    GPIO.output(ledgiallo, False)
-    GPIO.output(ledverde, False)
-    bot.sendMessage(chat_id, 'Distanza')
+def ledsonloop(distancecm):
+    if distancecm >0 and distancecm <=10:
+       print('La distanza va male')
+       print('Accendo LED Blue')
+       GPIO.output(ledrosso, True)
+       GPIO.output(ledgiallo, False)
+       GPIO.output(ledverde, False)
+
     elif distancecm >10 and distancecm <=20:
-    GPIO.output(ledrosso, False)
-    GPIO.output(ledgiallo, True)
-    GPIO.output(ledverde, False)
-    bot.sendMessage(chat_id, 'Distanza')
+         print('La distanza va benino')
+         print('Accendo LED Giallo')
+         GPIO.output(ledrosso, False)
+         GPIO.output(ledgiallo, True)
+         GPIO.output(ledverde, False)
+
     elif distancecm >20 and distancecm <=30:
-    GPIO.output(ledrosso, False)
-    GPIO.output(ledgiallo, False)
-    GPIO.output(ledverde, True)
-    bot.sendMessage(chat_id, 'Distanza')
+         print('La distanza va bene')
+         print('Accendo LED Verde')
+         GPIO.output(ledrosso, False)
+         GPIO.output(ledgiallo, False)
+         GPIO.output(ledverde, True)
+
     else:
-    GPIO.output(ledrosso, False)
-    GPIO.output(ledgiallo, False)
-    GPIO.output(ledverde, False)
+         GPIO.output(ledrosso, False)
+         GPIO.output(ledgiallo, False)
+         GPIO.output(ledverde, False)
+
+def ledsonchat(distancecm, chat_id):
+    if distancecm >0 and distancecm <=10:
+       bot.sendMessage(chat_id, 'La distanza va male')
+       bot.sendMessage(chat_id, 'Accendo LED Blue')
+
+    elif distancecm >10 and distancecm <=20:
+         bot.sendMessage(chat_id, 'La distanza va benino')
+         bot.sendMessage(chat_id, 'Accendo LED Giallo')
+
+    elif distancecm >20 and distancecm <=30:
+         bot.sendMessage(chat_id, 'La distanza va bene')
+         bot.sendMessage(chat_id, 'Accendo LED Verde')
+
+# Funzione per gestire i messaggi del bot
+def gestisci_messaggio(messaggio):
+    chat_id = messaggio['chat']['id']
+    testo = messaggio['text']
+
+    if testo == '/start':
+       distancecm = misura_distanza()
+       ledsonchat(distancecm, chat_id)
+       bot.sendMessage(chat_id, 'Benvenuto nel chatbot della distanza')
+
+    elif testo == '/distanza':
+         distancecm = misura_distanza()
+         bot.sendMessage(chat_id, 'Distanza : {}cm'.format(distancecm))
 
 # Configurazione del bot Telegram
 bot = telepot.Bot('6041146609:AAEDVHZxIVlRE_uYHpUnK4du640WdKre3oo')
 bot.message_loop(gestisci_messaggio)
 
-# Loop infinito per mantenere il bot in ascolto dei messaggi
 while True:
-    time.sleep(10)
+   distancecm = misura_distanza()
+   ledsonloop(distancecm)
+   print('La distanza è: ',distancecm,'cm')
+
+   time.sleep(0.5)
+
+GPIO.cleanup()
